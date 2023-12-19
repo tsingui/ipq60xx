@@ -10,6 +10,7 @@ platform_check_image() {
 
 platform_do_upgrade() {
 	case "$(board_name)" in
+	cmiot,ax18|\
 	glinet,gl-ax1800|\
 	glinet,gl-axt1800|\
 	netgear,wax214)
