@@ -11,9 +11,6 @@ ipq807x_setup_interfaces()
 	local board="$1"
 
 	case "$board" in
-	cmiot,ax18)
-		ucidef_set_interfaces_lan_wan "eth1 eth2 eth3" "eth0"
-        ;;
 	glinet,gl-ax1800)
 		ucidef_set_interfaces_lan_wan "eth1 eth2 eth3 eth4" "eth0"
 		;;
@@ -22,6 +19,11 @@ ipq807x_setup_interfaces()
 		;;
 	jdc,ax1800-pro)
 		ucidef_set_interfaces_lan_wan "eth0 eth1 eth2" "eth3"
+		;;
+	redmi,ax5|\
+	redmi,ax5-jdcloud|\
+	xiaomi,ax1800)
+		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3" "wan"
 		;;
 	*)
 		echo "Unsupported hardware. Network interfaces not initialized"

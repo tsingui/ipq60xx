@@ -9,12 +9,14 @@ board=$(board_name)
 case "$FIRMWARE" in
 "ath11k/IPQ6018/hw1.0/cal-ahb-c000000.wifi.bin")
 	case $(board_name) in
-	cmiot,ax18|\
 	glinet,gl-axt1800|\
-	glinet,gl-ax1800)
+	glinet,gl-ax1800|\
+	redmi,ax5|\
+	xiaomi,ax1800)
 		caldata_extract "0:art" 0x1000 0x10000
 		;;
-	jdc,ax1800-pro)
+	jdc,ax1800-pro|\
+	redmi,ax5-jdcloud)
 		caldata_extract_mmc "0:ART" 0x1000 0x10000
 		;;
 	*)
