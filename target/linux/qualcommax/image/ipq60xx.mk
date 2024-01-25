@@ -58,6 +58,7 @@ define Device/glinet_gl-axt1800
 endef
 TARGET_DEVICES += glinet_gl-axt1800
 
+
 define Device/jdc_ax1800-pro
 	$(call Device/FitImage)
 	DEVICE_VENDOR := JD Cloud
@@ -81,9 +82,6 @@ define Device/redmi_ax5-jdcloud
 	DEVICE_DTS_CONFIG := config@cp03-c1
 	SOC := ipq6018
 	DEVICE_PACKAGES := ipq-wifi-redmi_ax5-jdcloud
-	#BLOCKSIZE := 64k
-	KERNEL_SIZE := 6144k
-	IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-rootfs | append-metadata
 endef
 TARGET_DEVICES += redmi_ax5-jdcloud
 
@@ -112,3 +110,29 @@ define Device/xiaomi_ax1800
 	DEVICE_PACKAGES := ipq-wifi-xiaomi_ax1800
 endef
 TARGET_DEVICES += xiaomi_ax1800
+
+define Device/zn_m2
+	$(call Device/FitImage)
+	$(call Device/UbiFit)
+	DEVICE_VENDOR := ZN
+	DEVICE_MODEL := M2
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	DEVICE_DTS_CONFIG := config@cp03-c1
+	SOC := ipq6018
+	DEVICE_PACKAGES := ipq-wifi-zn_m2
+endef
+TARGET_DEVICES += zn_m2
+
+define Device/qihoo_v6
+	$(call Device/FitImage)
+	$(call Device/UbiFit)
+	DEVICE_VENDOR := Qihoo
+	DEVICE_MODEL := V6
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	DEVICE_DTS_CONFIG := config@cp03-c1
+	SOC := ipq6018
+	DEVICE_PACKAGES := ipq-wifi-qihoo_v6
+endef
+TARGET_DEVICES += qihoo_v6
