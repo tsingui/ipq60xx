@@ -17,7 +17,6 @@ define Device/EmmcImage
 	IMAGE/sysupgrade.bin/squashfs := append-rootfs | pad-to 64k | sysupgrade-tar rootfs=$$$$@ | append-metadata
 endef
 
-<<<<<<< HEAD
 define Device/cmiot_ax18
 	$(call Device/FitImage)
 	$(call Device/UbiFit)
@@ -31,8 +30,6 @@ define Device/cmiot_ax18
 endef
 TARGET_DEVICES += cmiot_ax18
 
-=======
->>>>>>> wifi/main
 define Device/glinet_gl-ax1800
 	$(call Device/FitImage)
 	$(call Device/UbiFit)

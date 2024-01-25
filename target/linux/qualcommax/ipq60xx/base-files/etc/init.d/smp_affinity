@@ -1,6 +1,6 @@
 #!/bin/sh /etc/rc.common
 
-START=99
+START=93
 
 enable_affinity_ipq807x() {
 	set_affinity() {
