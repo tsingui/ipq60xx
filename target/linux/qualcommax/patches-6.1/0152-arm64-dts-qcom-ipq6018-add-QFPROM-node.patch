@@ -16,7 +16,7 @@ Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
 --- a/arch/arm64/boot/dts/qcom/ipq6018.dtsi
 +++ b/arch/arm64/boot/dts/qcom/ipq6018.dtsi
-@@ -302,6 +302,13 @@
+@@ -303,6 +303,13 @@
  			status = "disabled";
  		};
  

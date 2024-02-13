@@ -13,11 +13,10 @@ Signed-off-by: Robert Marko <robimarko@gmail.com>
 
 --- a/arch/arm64/boot/dts/qcom/ipq6018.dtsi
 +++ b/arch/arm64/boot/dts/qcom/ipq6018.dtsi
-@@ -839,6 +839,121 @@
- 
- 			status = "disabled";
+@@ -841,6 +841,120 @@
+ 			};
  		};
-+
+ 
 +		wifi: wifi@c0000000 {
 +			compatible = "qcom,ipq6018-wifi";
 +			reg = <0x0 0xc000000 0x0 0x1000000>;

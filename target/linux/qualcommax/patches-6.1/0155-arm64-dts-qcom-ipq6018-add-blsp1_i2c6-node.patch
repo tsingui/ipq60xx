@@ -9,7 +9,7 @@ Subject: [PATCH 155/155] arm64: dts: qcom: ipq6018: add blsp1_i2c6 node
 
 --- a/arch/arm64/boot/dts/qcom/ipq6018.dtsi
 +++ b/arch/arm64/boot/dts/qcom/ipq6018.dtsi
-@@ -537,6 +537,21 @@
+@@ -538,6 +538,21 @@
  			status = "disabled";
  		};
  

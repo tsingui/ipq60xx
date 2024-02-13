@@ -2,7 +2,7 @@
 
 START=93
 
-enable_affinity_ipq807x() {
+enable_affinity_ipq() {
 	set_affinity() {
 		irq=$(awk "/$1/{ print substr(\$1, 1, length(\$1)-1); exit }" /proc/interrupts)
 		[ -n "$irq" ] && echo $2 > /proc/irq/$irq/smp_affinity
@@ -32,5 +32,5 @@ enable_affinity_ipq807x() {
 }
 
 boot() {
-	enable_affinity_ipq807x
+	enable_affinity_ipq
 }
