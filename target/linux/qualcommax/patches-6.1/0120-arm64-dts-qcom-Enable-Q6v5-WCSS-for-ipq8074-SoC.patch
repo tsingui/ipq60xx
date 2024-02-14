@@ -16,7 +16,7 @@ Signed-off-by: Robert Marko <robimarko@gmail.com>
 
 --- a/arch/arm64/boot/dts/qcom/ipq8074.dtsi
 +++ b/arch/arm64/boot/dts/qcom/ipq8074.dtsi
-@@ -141,6 +141,32 @@
+@@ -140,6 +140,32 @@
  		};
  	};
  
