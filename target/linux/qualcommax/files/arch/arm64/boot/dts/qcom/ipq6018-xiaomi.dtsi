@@ -225,3 +225,19 @@
 
 	qcom,ath11k-fw-memory-mode = <1>;
 };
+
+&qusb_phy_0 {
+	status = "ok";
+};
+
+&ssphy_0 {
+	status = "ok";
+};
+
+&usb2 {
+	status = "okay";
+};
+
+&usb3 {
+	status = "ok";
+};
