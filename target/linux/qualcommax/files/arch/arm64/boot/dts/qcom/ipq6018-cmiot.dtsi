@@ -227,4 +227,19 @@
 	status = "okay";
 	qcom,ath11k-fw-memory-mode = <2>;
  };
- 
+
+&CPU0 {
+	/delete-property/ cpu-supply;
+};
+
+&CPU1 {
+	/delete-property/ cpu-supply;
+};
+
+&CPU2 {
+	/delete-property/ cpu-supply;
+};
+
+&CPU3 {
+	/delete-property/ cpu-supply;
+};

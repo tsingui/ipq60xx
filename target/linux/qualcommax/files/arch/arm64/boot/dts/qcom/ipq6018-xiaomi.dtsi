@@ -241,3 +241,19 @@
 &usb3 {
 	status = "ok";
 };
+
+&CPU0 {
+	/delete-property/ cpu-supply;
+};
+
+&CPU1 {
+	/delete-property/ cpu-supply;
+};
+
+&CPU2 {
+	/delete-property/ cpu-supply;
+};
+
+&CPU3 {
+	/delete-property/ cpu-supply;
+};
