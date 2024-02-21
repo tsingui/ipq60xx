@@ -9,11 +9,9 @@ Subject: [PATCH] drivers: pinctrl: qcom: add ipq6000 support
  2 files changed, 1102 insertions(+)
  create mode 100644 drivers/pinctrl/qcom/pinctrl-ipq6000.c
 
-diff --git a/drivers/pinctrl/qcom/Makefile b/drivers/pinctrl/qcom/Makefile
-index 8269a1db8794..0db75e183ca0 100644
 --- a/drivers/pinctrl/qcom/Makefile
 +++ b/drivers/pinctrl/qcom/Makefile
-@@ -6,6 +6,7 @@ obj-$(CONFIG_PINCTRL_APQ8084)	+= pinctrl-apq8084.o
+@@ -6,6 +6,7 @@ obj-$(CONFIG_PINCTRL_APQ8084)	+= pinctrl
  obj-$(CONFIG_PINCTRL_IPQ4019)	+= pinctrl-ipq4019.o
  obj-$(CONFIG_PINCTRL_IPQ8064)	+= pinctrl-ipq8064.o
  obj-$(CONFIG_PINCTRL_IPQ8074)	+= pinctrl-ipq8074.o
@@ -21,9 +19,6 @@ index 8269a1db8794..0db75e183ca0 100644
  obj-$(CONFIG_PINCTRL_IPQ6018)	+= pinctrl-ipq6018.o
  obj-$(CONFIG_PINCTRL_MSM8226)	+= pinctrl-msm8226.o
  obj-$(CONFIG_PINCTRL_MSM8660)	+= pinctrl-msm8660.o
-diff --git a/drivers/pinctrl/qcom/pinctrl-ipq6000.c b/drivers/pinctrl/qcom/pinctrl-ipq6000.c
-new file mode 100644
-index 000000000000..cd7b16ed695d
 --- /dev/null
 +++ b/drivers/pinctrl/qcom/pinctrl-ipq6000.c
 @@ -0,0 +1,1101 @@
@@ -1128,6 +1123,3 @@ index 000000000000..cd7b16ed695d
 +MODULE_DESCRIPTION("QTI ipq6000 pinctrl driver");
 +MODULE_LICENSE("GPL v2");
 +MODULE_DEVICE_TABLE(of, ipq6018_pinctrl_of_match);
--- 
-2.25.1
-

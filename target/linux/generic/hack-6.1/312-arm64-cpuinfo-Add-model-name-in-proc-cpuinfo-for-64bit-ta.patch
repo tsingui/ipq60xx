@@ -1,7 +1,5 @@
-Index: linux-6.1.74/arch/arm64/kernel/cpuinfo.c
-===================================================================
---- linux-6.1.74.orig/arch/arm64/kernel/cpuinfo.c
-+++ linux-6.1.74/arch/arm64/kernel/cpuinfo.c
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
 @@ -170,9 +170,8 @@ static int c_show(struct seq_file *m, vo
  		 * "processor".  Give glibc what it expects.
  		 */
