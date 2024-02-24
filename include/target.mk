@@ -54,7 +54,7 @@ DEFAULT_PACKAGES.nas:=\
 # For router targets
 DEFAULT_PACKAGES.router:=\
 	dnsmasq-full \
-	firewall4 \
+	firewall \
 	nftables \
 	kmod-nft-offload \
 	odhcp6c \

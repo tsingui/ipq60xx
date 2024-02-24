@@ -48,4 +48,13 @@ endif
 	$(CP) ./files/luci-mod-status-autocore.json $(1)/usr/share/rpcd/acl.d/
 endef
 
+define Package/autocore-arm/install
+	$(call Package/autocore/install/Default,$(1))
+
+ifneq (, $(findstring $(BOARD), ipq40xx ipq60xx ipq806x ipq807x))
+	$(INSTALL_BIN) ./files/arm/tempinfo $(1)/sbin/
+endif
+endef
+
+
 $(eval $(call BuildPackage,autocore))
