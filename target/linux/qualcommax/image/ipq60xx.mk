@@ -1,15 +1,15 @@
-define Device/FitImage
-	KERNEL_SUFFIX := -fit-uImage.itb
-	KERNEL = kernel-bin | gzip | fit gzip $$(KDIR)/image-$$(DEVICE_DTS).dtb
-	KERNEL_NAME := Image
+define Device/8devices_mango-dvk
+	$(call Device/FitImageLzma)
+	DEVICE_VENDOR := 8devices
+	DEVICE_MODEL := Mango-DVK
+	IMAGE_SIZE := 27776k
+	BLOCKSIZE := 64k
+	SOC := ipq6010
+	SUPPORTED_DEVICES += 8devices,mango
+	IMAGE/sysupgrade.bin := append-kernel | pad-to 64k | append-rootfs | pad-rootfs | check-size | append-metadata
+	DEVICE_PACKAGES := ipq-wifi-8devices_mango
 endef
-
-define Device/UbiFit
-	KERNEL_IN_UBI := 1
-	IMAGES := nand-factory.ubi nand-sysupgrade.bin
-	IMAGE/nand-factory.ubi := append-ubi
-	IMAGE/nand-sysupgrade.bin := sysupgrade-tar | append-metadata
-endef
+TARGET_DEVICES += 8devices_mango-dvk
 
 define Device/EmmcImage
 	IMAGES += factory.bin sysupgrade.bin

@@ -11,7 +11,7 @@ PKG_NAME:=ath11k-firmware
 PKG_SOURCE_DATE:=2023-08-22
 PKG_SOURCE_VERSION:=d8f82a98ff1aef330d65d8b5660b46d1a9809ee3
 PKG_MIRROR_HASH:=3dba19449758c3b17f117990d7ad4086554e012b579f1de16e9d9196a7fbaaa7
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/quic/upstream-wifi-fw.git
@@ -34,7 +34,7 @@ endef
 
 define Package/ath11k-firmware-ipq6018
 $(Package/ath11k-firmware-default)
-  TITLE:=ath11k firmware for IPQ6018 devices
+  TITLE:=IPQ6018 ath11k firmware
 endef
 
 define Package/ath11k-firmware-ipq8074
@@ -61,6 +61,21 @@ define Download/qcn9074-board
   HASH:=dbf0ca14aa1229eccd48f26f1026901b9718b143bd30b51b8ea67c84ba6207f1
 endef
 $(eval $(call Download,qcn9074-board))
+
+define Download/ath11k-firmware-old
+  URL:=https://github.com/kvalo/ath11k-firmware.git
+  VERSION:=540105aa5c0903b5f773d4e80b8501e8da5217e7
+  PROTO:=git
+  FILE:=ath11k-firmware-old.tar.xz
+  SUBDIR:=ath11k-firmware-old
+  MIRROR_HASH:=a35a164726fab2adc4ad447c974c06746355ba74deab9b849d39f06b5187bb6d
+endef
+$(eval $(call Download,ath11k-firmware-old))
+
+define Build/Prepare
+	$(call Build/Prepare/Default)
+	xzcat $(DL_DIR)/ath11k-firmware-old.tar.xz | tar -C $(PKG_BUILD_DIR)/ -xf -
+endef
 
 define Package/ath11k-firmware-ipq6018/install
 	$(INSTALL_DIR) $(1)/lib/firmware/IPQ6018

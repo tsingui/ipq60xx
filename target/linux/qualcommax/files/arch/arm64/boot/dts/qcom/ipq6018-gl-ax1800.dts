@@ -27,11 +27,12 @@
 	};
 };
 
-&mdio {
+&ethernet_0 {
 	qca8075_3: ethernet-phy@3 {
         compatible = "ethernet-phy-ieee802.3-c22";
 		reg = <3>;
 	};
+	
 	qca8075_4: ethernet-phy@4 {
         compatible = "ethernet-phy-ieee802.3-c22";
 		reg = <4>;
@@ -60,6 +61,7 @@
 
 &dp5 {
 	phy-handle = <&qca8075_4>;
+	phy-mode = "psgmii";
 	status = "okay";
 };
 

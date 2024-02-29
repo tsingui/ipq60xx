@@ -37,8 +37,6 @@
 		led-upgrade = &led_system_white;
 	};
 
-	/delete-node/ rpm-glink;
-
 	chosen {
 		stdout-path = "serial0:115200n8";
 		bootargs-append = " root=/dev/ubiblock0_1";
@@ -233,28 +231,38 @@
 	status = "okay";
 };
 
+&rpm {
+	status = "disabled";
+};
+
 &mdio {
 	status = "okay";
-
 	pinctrl-0 = <&mdio_pins>;
 	pinctrl-names = "default";
 	reset-gpios = <&tlmm 74 GPIO_ACTIVE_LOW>;
 
-	qca8075_0: ethernet-phy@0 {
-		compatible = "ethernet-phy-ieee802.3-c22";
+	ethernet_0: ethernet-phy-package@0 {
+		compatible = "qcom,qca8075-package";
+		#address-cells = <1>;
+		#size-cells = <0>;
 		reg = <0>;
-	};
+		qcom,package-mode = "psgmii";
 
-	qca8075_1: ethernet-phy@1 {
-		compatible = "ethernet-phy-ieee802.3-c22";
-		reg = <1>;
-	};
+		qca8075_0: ethernet-phy@0 {
+			compatible = "ethernet-phy-ieee802.3-c22";
+			reg = <0>;
+		};
 
-	qca8075_2: ethernet-phy@2 {
-		compatible = "ethernet-phy-ieee802.3-c22";
-		reg = <2>;
-	};
+		qca8075_1: ethernet-phy@1 {
+			compatible = "ethernet-phy-ieee802.3-c22";
+			reg = <1>;
+		};
 
+		qca8075_2: ethernet-phy@2 {
+			compatible = "ethernet-phy-ieee802.3-c22";
+			reg = <2>;
+		};
+	};
 };
 
 &switch {

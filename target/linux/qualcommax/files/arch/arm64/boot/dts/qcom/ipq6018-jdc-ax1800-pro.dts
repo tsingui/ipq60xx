@@ -32,10 +32,10 @@
 	aliases {
 		sdhc1 = &sdhc_1;
 		serial0 = &blsp1_uart3;
-		led-boot = &led_blue_1;
+		led-boot = &led_red_1;
 		led-failsafe = &led_red_1;
 		led-running = &led_green_1;
-		led-upgrade = &led_green_2;
+		led-upgrade = &led_green_1;
 		ethernet1 = &dp2;
 		ethernet2 = &dp3;
 		ethernet3 = &dp4;
@@ -46,8 +46,6 @@
 		bootargs = "console=ttyMSM0,115200,n8";
 		bootargs-append = " rootfstype=squashfs,ext4 swiotlb=1 coherent_pool=2M";
 	};
-
-    /delete-node/ rpm-glink;
 
     gpio_keys {
         compatible = "gpio-keys";
@@ -301,6 +299,10 @@
 	status = "okay";
 };
 
+&rpm {
+	status = "disabled";
+};
+
 &mdio {
 	status = "okay";
 
@@ -308,25 +310,33 @@
 	pinctrl-names = "default";
 	reset-gpios = <&tlmm 75 GPIO_ACTIVE_LOW>;
 
-	qca8075_1: ethernet-phy@1 {
-		compatible = "ethernet-phy-ieee802.3-c22";
-		reg = <1>;
-	};
+    ethernet_0: ethernet-phy-package@0 {
+        compatible = "qcom,qca8075-package";
+        #address-cells = <1>;
+        #size-cells = <0>;
+        reg = <0>;
+		qcom,package-mode = "psgmii";
 
-	qca8075_2: ethernet-phy@2 {
-		compatible = "ethernet-phy-ieee802.3-c22";
-		reg = <2>;
-	};
+        qca8075_1: ethernet-phy@1 {
+            compatible = "ethernet-phy-ieee802.3-c22";
+            reg = <1>;
+        };
 
-	qca8075_3: ethernet-phy@3 {
-		compatible = "ethernet-phy-ieee802.3-c22";
-		reg = <3>;
-	};
+        qca8075_2: ethernet-phy@2 {
+            compatible = "ethernet-phy-ieee802.3-c22";
+            reg = <2>;
+        };
 
-    qca8075_4: ethernet-phy@4 {
-		compatible = "ethernet-phy-ieee802.3-c22";
-		reg = <4>;
-	};
+        qca8075_3: ethernet-phy@3 {
+            compatible = "ethernet-phy-ieee802.3-c22";
+            reg = <3>;
+        };
+
+        qca8075_4: ethernet-phy@4 {
+            compatible = "ethernet-phy-ieee802.3-c22";
+            reg = <4>;
+        };
+    };
 };
 
 &switch {
@@ -386,6 +396,7 @@
 
 &dp5 {
     phy-handle = <&qca8075_4>;
+	phy-mode = "psgmii";
     status = "okay";
 };
 
