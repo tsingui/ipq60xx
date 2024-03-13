@@ -16,7 +16,7 @@ case "$board" in
 	;;
     glinet,gl-ax1800|\
     glinet,gl-axt1800|\
-    cmiot_ax18|\
+    cmiot,ax18|\
     redmi,ax5|\
     xiaomi,ax1800|\
     qihoo,v6|\
