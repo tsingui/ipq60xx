@@ -4,8 +4,10 @@
 
 #include "ipq6018.dtsi"
 #include "ipq6018-ess.dtsi"
+#include "ipq6018-cp-cpu.dtsi"
 #include "ipq6018-256m.dtsi"
 #include "ipq6018-nss.dtsi"
+#include "ipq6018-cpufreq.dtsi"
 
 
 #include <dt-bindings/input/input.h>
@@ -21,8 +23,6 @@
 		ethernet2 = &dp3;
 		ethernet3 = &dp4;
 	};
-
-    /delete-node/ rpm-glink;
 
 	chosen {
 		bootargs-append = " root=/dev/ubiblock0_1 swiotlb=1";
@@ -227,19 +227,3 @@
 	status = "okay";
 	qcom,ath11k-fw-memory-mode = <2>;
  };
-
-&CPU0 {
-	/delete-property/ cpu-supply;
-};
-
-&CPU1 {
-	/delete-property/ cpu-supply;
-};
-
-&CPU2 {
-	/delete-property/ cpu-supply;
-};
-
-&CPU3 {
-	/delete-property/ cpu-supply;
-};
