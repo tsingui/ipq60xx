@@ -11,10 +11,6 @@ ipq60xx_setup_interfaces()
 	local board="$1"
 
 	case "$board" in
-	cmiot,ax18|\
-	zn,m2)
-		ucidef_set_interfaces_lan_wan "eth1 eth2 eth3" "eth0"
-        ;;
 	8devices,mango-dvk)
 		ucidef_set_interfaces_lan_wan "lan1 lan2" "wan"
 		;;
@@ -24,10 +20,12 @@ ipq60xx_setup_interfaces()
 	glinet,gl-axt1800)
 		ucidef_set_interfaces_lan_wan "eth1 eth2" "eth0"
 		;;
-	qihoo,v6|\
 	jdc,ax1800-pro)
 		ucidef_set_interfaces_lan_wan "eth0 eth1 eth2" "eth3"
 		;;
+	cmiot,ax18|\
+	zn,m2|\
+	qihoo,v6|\
 	redmi,ax5|\
 	redmi,ax5-jdcloud|\
 	xiaomi,ax1800)
