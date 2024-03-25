@@ -8,3 +8,5 @@ src-git extras https://github.com/openwrt-ipq60xx/extras.git
 #src-git oldpackages http://git.openwrt.org/packages.git
 #src-link custom /usr/src/openwrt/custom-feed
 src-git sqm_scripts_nss https://github.com/rickkdotnet/sqm-scripts-nss.git
+src-git kenzo https://github.com/kenzok8/openwrt-packages
+src-git small https://github.com/kenzok8/small
