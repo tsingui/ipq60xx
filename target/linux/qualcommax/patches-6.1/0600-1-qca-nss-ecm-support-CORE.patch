@@ -687,7 +687,7 @@
  out:
  	fib6_info_release(rt);
  	return err;
-@@ -6339,6 +6349,20 @@ static int ip6_route_dev_notify(struct n
+@@ -6332,6 +6342,20 @@ static int ip6_route_dev_notify(struct n
  	return NOTIFY_OK;
  }
  
@@ -720,7 +720,7 @@
  	return "UNKNOWN_NETDEV_EVENT";
 --- a/net/ipv6/addrconf.c
 +++ b/net/ipv6/addrconf.c
-@@ -987,6 +987,7 @@ void inet6_ifa_finish_destroy(struct ine
+@@ -1002,6 +1002,7 @@ void inet6_ifa_finish_destroy(struct ine
  
  	kfree_rcu(ifp, rcu);
  }
@@ -728,7 +728,7 @@
  
  static void
  ipv6_link_dev_addr(struct inet6_dev *idev, struct inet6_ifaddr *ifp)
-@@ -2045,6 +2046,36 @@ struct inet6_ifaddr *ipv6_get_ifaddr(str
+@@ -2060,6 +2061,36 @@ struct inet6_ifaddr *ipv6_get_ifaddr(str
  
  	return result;
  }
